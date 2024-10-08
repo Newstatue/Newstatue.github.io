@@ -1,0 +1,192 @@
+﻿@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 2
+   Case Problem 4
+   
+   The Great Lakescape Lodge Layout Styles
+   Filename: lake_layout.css
+*/
+
+@font-face {
+	font-family: 'CustomFont';
+	src: url('cac_champagne.woff') format('woff'),
+	url('cac_champagne.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'CustomFont-2';
+	src: url('Quattrocento-Regular.ttf') format('truetype');
+}
+/* Structural Styles */
+
+body {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1020px;
+	min-width: 640px;
+	background-color: #CBCC8A;
+	box-sizing: border-box;
+}
+
+h1,h2 {
+	margin: 0;
+}
+
+
+body > header > img {
+	width: 100%;
+	display: block;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.container {
+	display: flex;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body > .container > section#leftcol {
+	width: 70%;
+	padding: 20px;
+	background-color: #1B1C14;
+	color: white;
+	box-sizing: border-box;
+}
+
+body > .container > section#leftcol > h1{
+	font-family: CustomFont;
+	font-size:60px
+}
+
+body > .container > section#rightcol {
+	width: 30%;
+	padding: 20px;
+	background-color: #582D5A;
+	color: white;
+	box-sizing: border-box;
+}
+
+body > .container > section#rightcol > nav > ul > li > a{
+	color: #C09DBD;
+	text-decoration: none;
+}
+
+body > .container > section#rightcol > nav > h2{
+	font-family: CustomFont;
+	font-size:30px
+}
+
+footer {
+	clear: both;
+	background-color: #4D464E;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	box-sizing: border-box;
+	color: white;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+address, article, aside, blockquote, body, cite,
+div, dl, dt, dd, em, figcaption, figure, footer,
+h1, h2, h3, h4, h5, h6, header, html, img,
+li, main, nav, ol, p, section, span, ul {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	list-style-type: none;
+}
+
+/* Header Navigation */
+
+header > nav {
+	display: table;
+	width: 100%;
+	background-color: #784A78;
+}
+
+header > nav > ul {
+	display: table-row;
+	list-style-type: none;
+}
+
+header > nav > ul > li {
+	display: table-cell;
+	text-align: center;
+}
+
+header > nav a {
+	display: block;
+	width: 100%;
+	padding:10px;
+	color: #C09DBD;
+	text-decoration: none;
+}
+
+/* Section Layout */
+section#leftcol {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+section#leftcol aside#left {
+	width: 42%;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	margin-bottom: 20px;
+	background-color: #E3A28E;
+	padding: 10px;
+}
+section#leftcol aside#left>h1{
+	font-size: 20px;
+	text-align: center;
+}
+section#leftcol aside#left>ul>li{
+	list-style-type: disc;
+}
+
+section#leftcol aside#right {
+	width: 42%;
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+	margin-bottom: 20px;
+	background-color: #D1BB72;
+	padding: 10px;
+}
+section#leftcol aside#right>p{
+	padding: 10px;
+}
+section#leftcol aside#right>h1{
+	text-align: center;
+	font-size: 20px;
+}
+section#leftcol aside#right>h2{
+	font-size: 15px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+section#leftcol img {
+	width: 100%;
+	display: block;
+}
+blockquote{
+	font-family: CustomFont-2;
+	font-size: 20px;
+	color: #D491E5;
+}
+pre {
+	display: inline;
+	font-size: 30px;
+}
+
+
+/* 设置闭引号的样式 */
+
+
+/* Ensure the container class is used to wrap the columns */
