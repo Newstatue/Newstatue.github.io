@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="components.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lab3</title>
     <style>
         body, html {
             margin: 0;
@@ -22,10 +21,19 @@
             border-radius: 0.5rem;
             text-align: center;
         }
+        .top-content {
+            position: absolute;   
+            top: 20px;            
+            text-align: center;   
+            width: 100%;          
+        }
     </style>
 </head>
 <body>
 <div>
+    <div class="top-content" id="content">
+        
+    </div>
     <p id="status"></p>
     <p>Your browser's preferred language is:<span id="language"></span></p>
 
@@ -115,8 +123,10 @@
 <script src="randominteger.js"></script>
 </body>
 <script>
-    document.write('<h1>This is a title</h1>');
-    document.write('<p>This is a paragraph</p>');
+
+    const contentDiv = document.getElementById('content');
+    contentDiv.innerHTML = '<h1>This is a title</h1><p>This is a paragraph</p>';
+
 
     if (navigator.onLine) {
         document.getElementById("status").textContent = "You are online!";
