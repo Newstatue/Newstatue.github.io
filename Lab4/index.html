@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Catalog</title>
+</head>
+<body>
+<h1>Book Catalog</h1>
+<div id="books"></div>
+
+<!-- Add a link to userProfiles.html -->
+<a href="userProfiles.html">View User Profiles</a>
+
+<script>
+    fetch('book.xml')
+        .then(response => {
+            if (!response.ok) throw new Error('Fetch error: ' + response.status);
+            return response.text();
+        })
+        .then(xmlText => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+            const books = xmlDoc.getElementsByTagName('book');
+            let output = '';
+            for (let book of books) {
+                const title = book.getElementsByTagName('title')[0].textContent;
+                const author = book.getElementsByTagName('author')[0].textContent;
+                const price = book.getElementsByTagName('price')[0].textContent;
+                output += `<p>Title: ${title}, Author: ${author}, Price: ${price}</p>`;
+            }
+            document.getElementById('books').innerHTML = output;
+        })
+        .catch(err => console.error('Fetch error: ' + err.message));
+</script>
+</body>
+</html>
