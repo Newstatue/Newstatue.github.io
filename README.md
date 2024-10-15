@@ -4,3 +4,4 @@
 [Lab2](https://newstatue.github.io/Lab2)
 [Lab3](https://newstatue.github.io/Lab3)
 [Lab4](https://newstatue.github.io/Lab4)
+[Lab5](https://newstatue.github.io/Lab5)

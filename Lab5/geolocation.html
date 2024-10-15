@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #F6F8FA;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        button {
+            border-radius: 0.375rem;
+            background-color: #4f46e5;
+            padding: 0.625rem 1rem;
+            font-size: 1rem;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4338ca;
+        }
+        p {
+            font-size: 1rem;
+            color: #555;
+            margin-top: 20px;
+            min-height: 40px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color:#F1F5F9;
+            padding: 10px;
+            border-radius: 1rem;
+            margin: auto;
+            width: 40%;
+        }
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 0.375rem;
+            transition: background-color 0.3s ease;
+            margin: 0 5px;
+        }
+        .navbar a:hover {
+            background-color: #FFFFFF; /* 悬停时的背景颜色 */
+        }
+    </style>
+</head>
+<body>
+<div class="navbar">
+    <a href="index.html">SmileyFace</a>
+    <a href="geolocation.html">Geolocation</a>
+    <a href="todo.html">Todo</a>
+</div>
+<h1>Get Your Geolocation</h1>
+<button onclick="getGeolocation()">Get Geolocation</button>
+<p id="geolocation">Your location will appear here.</p>
+
+<script src="geolocation.js"></script>
+</body>
+</html>
