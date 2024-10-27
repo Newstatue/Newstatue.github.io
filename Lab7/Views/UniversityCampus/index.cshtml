@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Lab7.Models.UniversityCampus>
+
+@if (Model == null || !Model.Any())
+{
+<p>No campuses available.</p>
+}
+else
+{
+<h2>University Campuses</h2>
+
+<ul>
+    @foreach (var campus in Model)
+    {
+    <li>
+        <a href="javascript:void(0)" onclick="showStudents(@campus.ID)">@campus.Name</a> - Students: @campus.Students.Count
+        <div id="students-@campus.ID" style="display:none; margin-left:20px;">
+            <h3>Student List</h3>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var student in campus.Students)
+                {
+                <tr>
+                    <td>@student.Name</td>
+                    <td>@student.Address</td>
+                </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </li>
+    }
+</ul>
+}
+
+<script>
+    function showStudents(campusId) {
+        // 获取对应校园的学生列表元素
+        var studentList = document.getElementById("students-" + campusId);
+
+        // 切换显示/隐藏
+        if (studentList.style.display === "none") {
+            studentList.style.display = "block";
+        } else {
+            studentList.style.display = "none";
+        }
+    }
+</script>
