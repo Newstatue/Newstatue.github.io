@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Lab8.Models.Student> 
+
+@{
+    ViewData["Title"] = "Student List"; 
+}
+
+<h2>Students</h2>
+
+<form method="get" asp-controller="Students" asp-action="Index" onsubmit="saveValues()">
+    <label for="campusName">Select Campus:</label>
+    <select id="campusName" name="campusName">
+        <option value="">All</option>
+        @foreach (var campus in ViewBag.Campuses)
+        {
+        <option value="@campus.Name">@campus.Name</option>
+        }
+    </select>
+
+    <label for="studentName">Search by Name:</label>
+    <input type="text" id="studentName" name="studentName" />
+
+    <button type="submit">Search</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Campus ID</th>
+    </tr>
+    </thead>
+    <tbody>
+    @if (Model != null && Model.Any())
+    {
+    foreach (var student in Model)
+    {
+    <tr>
+        <td>@student.ID</td>
+        <td>@student.Name</td>
+        <td>@student.Address</td>
+        <td>@student.CampusID</td>
+    </tr>
+    }
+    }
+    else
+    {
+    <tr>
+        <td colspan="4">No students found.</td>
+    </tr>
+    }
+    </tbody>
+</table>
+
+<script>
+    // 获取 URL 参数并设置下拉框和输入框的值
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const campusName = urlParams.get('campusName');
+        const studentName = urlParams.get('studentName');
+
+        // 如果有校园名称参数，则设置选择的校园
+        if (campusName) {
+            document.getElementById('campusName').value = campusName;
+        }
+
+        // 如果有学生姓名参数，则设置输入框的值
+        if (studentName) {
+            document.getElementById('studentName').value = studentName;
+        }
+    };
+
+    // 提交表单时保存选择的值
+    function saveValues() {
+        const campusName = document.getElementById('campusName');
+        const studentName = document.getElementById('studentName');
+
+        // 通过 localStorage 保存选择的值
+        localStorage.setItem('selectedCampus', campusName);
+        localStorage.setItem('studentName', studentName);
+    }
+</script>
